@@ -12,6 +12,7 @@ describe('Test Order', () => {
   beforeEach(() => {
     //Arrange:
     //Setup Order Context
+    //setup the function before each run
     orderName = 'test-fun';
     orderItems = [
       { item: 'Test 1', quantity: 1 },
@@ -37,7 +38,8 @@ describe('Test Order', () => {
     );
     //Assert: replace the return true.
     await waitFor(() => {
-      return true;
+      expect(screen.getAllByText('$2.50'))
+          .toHaveLength(1);
     });
   });
 
@@ -63,7 +65,8 @@ describe('Test Order', () => {
     );
     //Assert: replace the return true.
     await waitFor(() => {
-      return true;
+       expect(screen.getAllByText('$5.00'))
+         .toHaveLength(1);
     });
   });
 });
