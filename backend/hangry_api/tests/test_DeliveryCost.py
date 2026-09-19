@@ -32,4 +32,13 @@ def test_LittleItems():
   # TODO: Call the function that will be tested
   #Assert
   # TODO: replace the pass with an assert to test the value returned.
-  pass
+  #pass
+  #Arrange
+  order = MockSet()
+  order.add(MockModel(quantity=3))
+  order.add(MockModel(quantity=1))
+  del_dist = 2
+  #Act
+  cost = Delivery.calculate(order, del_dist)
+  #Assert
+  assert cost == 2.50
