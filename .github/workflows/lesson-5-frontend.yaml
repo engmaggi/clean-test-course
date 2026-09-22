@@ -32,5 +32,7 @@ jobs:
     needs: [deploy]
     runs-on: ubuntu-latest
     steps:
-      with:
-        target: 'https://hangryhippo.quantic.host'
+      - name: Dynamic Application Security Scan
+        uses: zaproxy/action-baseline@v0.15.0
+        with:
+          target: 'https://hangryhippo.quantic.host/'
